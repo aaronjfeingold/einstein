@@ -211,6 +211,7 @@ tasks:
       # Create DB
       - sudo -i -u postgres psql -c "CREATE DATABASE einstein_db"
       - sudo -i -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE einstein_db TO einstein_user"
+      - sudo -i -u postgres psql -d einstein_db -c "GRANT CREATE, USAGE ON SCHEMA public TO einstein_user"
       - task _db-migrate
 
   db-clean:
